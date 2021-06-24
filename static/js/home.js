@@ -1,7 +1,3 @@
-function toggleCart() {
-
-}
-
 function addProductToCart(trigger) {
     cartProducts = document.getElementsByClassName("cart-item");
     product = trigger.parentNode.parentNode.childNodes[1].childNodes[1].innerHTML;
@@ -85,6 +81,32 @@ function create(type, inner="", classes="") {
         element.setAttribute("class", classes);
     }
     return element;
+}
+
+function onSuccessOnClickBuyButton(data) {
+    cartProducts = document.getElementsByClassName("cart-item");
+    Array.from(cartProducts).forEach(cartItem => {
+        cartItem.parentNode.removeChild(cartItem);
+    });
+    updateCart();
+    showFeedback('success', 'Pedido realizado correctamente', false, 2000, "rgba(80,80,80,0.4)")
+}
+
+function onClickBuyButton() {
+    cartProducts = document.getElementsByClassName("cart-item");
+    products = [];
+    prices = [];
+    Array.from(cartProducts).forEach(cartItem => {
+        itemName = cartItem.childNodes[0].innerHTML;
+        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML;
+        products.push(itemName);
+        prices.push(itemPrice);
+    });
+    data = {
+        'products': products,
+        'prices': prices 
+    }
+    ajaxToPostData('buy/', data, onSuccessOnClickBuyButton);
 }
 
 document.getElementById("cart").addEventListener('click', function (event) {
