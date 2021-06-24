@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title%}Home{% endblock %}
+{% block main %}
+<nav class="px-3 navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Zapatos Berdini</a>
+    <div class="d-flex justify-content-between">
+        <div class="dropstart mx-2">
+            <button class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" type="button">
+                <i class="fas fa-shopping-cart"></i> Cart
+            </button>
+            <div id="cart" style="width: 30vw;" class="dropdown-menu">
+                <div id="cart-header" style="display: none !important;" class="row dropdown-item d-flex align-items-center mx-0">
+                    <p class="col-5 text-center m-0">Product name</p>
+                    <p class="col-3 text-center m-0">Quantity</p>
+                    <p class="col-3 text-center m-0">Price</p>
+                </div>
+                <div id="cart-body">
+                    <div id="cart-body-empty" class="row dropdown-item d-flex align-items-center m-0">
+                        <h3 class="col-12 text-center m-0">Your cart is empty!</h3>
+                    </div>
+                </div>
+                <div id="cart-footer" style="display: none !important;" class="row dropdown-item d-flex align-items-center mx-0">
+                    <p class="col-5 m-0"></p>
+                    <p class="col-3 text-center m-0">Total</p>
+                    <p class="col-3 text-center m-0"><span id="total-price">0.00</span>€</p>
+                </div>
+            </div>       
+            <a href="/logout" class="btn btn-outline-secondary">Logout</a>  
+        </div>
+    </div>
+</nav>
+
+<div class="row mx-3">
+{% for product in products %}
+<div class="card col-4 mt-3 mx-0">
+    <div class="card-body">
+        <h3 class="card-title">{{ product.name }}</h3>
+        <h5 class="card-text">{{ product.description }}</h5>
+    </div>
+    <div class="d-flex justify-content-end py-3">
+        <button class="btn btn-outline-success" type="button" onclick="addProductToCart(this)">Add to Cart: <span>{{ product.price }}</span>€</button>
+    </div>
+    <!--<button class="btn btn-outline-danger" type="button" onclick="removeProductFromCart(this)">-1</button>-->
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
