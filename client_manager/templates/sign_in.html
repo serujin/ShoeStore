@@ -15,11 +15,11 @@
         </div>
     {% endfor %}
 {% endif %}
-  <h2>Sign in</h2>
+  <h2>Iniciar Sesión</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign in</button>
+    <button type="submit">Iniciar Sesión</button>
   </form>
-  <p>Don't have an account? Register <a href="/signup">here</a></p>
+  <p>¿Todavía no estás registrado? Regístrate <a href="/signup">aquí</a></p>
 {% endblock %}
