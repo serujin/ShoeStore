@@ -9,8 +9,6 @@ def send_email(request):
         from_email = 'noreply@gmail.com',
         to = ['sergio.munoz.lillo@gmail.com', 'zapatos.bernini.onlineshop@gmail.com']
     )
-    products = ['Patata', 'Chorizo', 'Limón']
-    prices = ['20.20€', '10.99€', '5.99€']
-    email.attach('shoes_order.xlsx', xlsx_views.generate_excel_from_values(products, prices).getvalue() , 'application/vnd.ms-excel')
+    email.attach('shoes_order.xlsx', xlsx_views.generate_excel_from_values(request).getvalue() , 'application/vnd.ms-excel')
     email.send()
-    return redirect('home')
+    return redirect('/home')

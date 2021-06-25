@@ -21,6 +21,7 @@ function addProductToCart(trigger) {
         cart.appendChild(getCartHolder(product, price));
     }
     updateCart();
+    showFeedback('success', 'Producto añadido correctamente', false, 1000, "rgba(80,80,80,0.4)")
 }
 
 function removeProductFromCart(trigger) {
@@ -89,24 +90,33 @@ function onSuccessOnClickBuyButton(data) {
         cartItem.parentNode.removeChild(cartItem);
     });
     updateCart();
+    console.log()
+    $('#cart-trigger').removeClass('show');
+    $('#cart').removeClass('show');
     showFeedback('success', 'Pedido realizado correctamente', false, 2000, "rgba(80,80,80,0.4)")
 }
 
 function onClickBuyButton() {
     cartProducts = document.getElementsByClassName("cart-item");
     products = [];
+    quantities = [];
     prices = [];
+    total = document.getElementById("total-price").innerHTML + '€';
     Array.from(cartProducts).forEach(cartItem => {
         itemName = cartItem.childNodes[0].innerHTML;
-        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML;
+        itemQuantity = cartItem.childNodes[1].innerHTML;
+        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML + '€';
         products.push(itemName);
+        quantities.push(itemQuantity);
         prices.push(itemPrice);
     });
     data = {
         'products': products,
-        'prices': prices 
+        'quantities': quantities,
+        'prices': prices,
+        'total': total
     }
-    ajaxToPostData('buy/', data, onSuccessOnClickBuyButton);
+    ajaxToPostData('order/', data, onSuccessOnClickBuyButton);
 }
 
 document.getElementById("cart").addEventListener('click', function (event) {

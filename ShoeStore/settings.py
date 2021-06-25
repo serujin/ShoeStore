@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'client_manager.apps.ClientManagerConfig',
     'email_manager.apps.EmailManagerConfig',
-    'product_manager.apps.ProductManagerConfig',
+    'order_manager.apps.OrderManagerConfig',
     'xlsx_manager.apps.XLSXManagerConfig',
+    'product_api.apps.ProductApiConfig',
 ]
 
 MIDDLEWARE = [

@@ -5,7 +5,7 @@
     <a class="navbar-brand">Zapatos Berdini</a>
     <div class="d-flex justify-content-between">
         <div class="dropstart mx-2">
-            <button class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" type="button">
+            <button id='cart-trigger' class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" type="button">
                 <i class="fas fa-shopping-cart"></i> Cart
             </button>
             <div id="cart" style="width: 30vw;" class="dropdown-menu">
@@ -41,7 +41,6 @@
     <div class="d-flex justify-content-end py-3">
         <button class="btn btn-outline-success" type="button" onclick="addProductToCart(this)">Add to Cart: <span>{{ product.price }}</span>€</button>
     </div>
-    <!--<button class="btn btn-outline-danger" type="button" onclick="removeProductFromCart(this)">-1</button>-->
 </div>
 {% endfor %}
 </div>
