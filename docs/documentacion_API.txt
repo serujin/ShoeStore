@@ -1,0 +1,23 @@
+Documentación de la API de productos:
+
+La API está montada en la url /api, permite buscar por nombre, precios y primary key del producto en cuestión.
+
+Siempre devolverá un JSON con los datos (name, description, price) de el/los producto/s encontrados.
+
+La forma de utilizarla es la siguiente:
+    api/ --> Devuelve todos los productos.
+        ejemplo --> http://127.0.0.1:8000/api
+
+    api/all/ --> Devuelve todos los productos.
+        ejemplo --> api/all
+
+    api/name/nombre --> Busca por nombre, acepta nombres con letras en mayúscula, minúscula y con espacios, para usar espacios se ha de colocar un guión bajo "_" en su lugar.
+        ejemplos --> api/name/new_balance, api/name/NeW_BaLaNce, /api/name/NEW_BALANCE
+
+    api/pk/número --> Busca por primary key.
+        ejemplos --> api/pk/3, api/pk/4, api/pk/6
+
+    api/price/número --> Busca por precio, acepta números enteros y decimales de hasta dos cifras decimales, se puede separar la parte entera y decimal con punto "." o coma ",".
+        ejemplos --> api/price/55, api/price/87.65, api/price/59,99, api/price/78.3
+ 
+En caso de que la peticióna a la API, no tenga resultado, se devolverá un código HTTP 204 (No Content).

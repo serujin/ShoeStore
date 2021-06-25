@@ -1,0 +1,15 @@
+Los requerimientos de instalación se encuentran en el archivo requirements.txt (pip install -r requirements.txt)
+
+Para poder utilizar la aplicación es necesario tener la sesión iniciada, de otro modo, se redireccionará constantemente a la pantalla de login.
+
+El mail se enviará a las direcciones de correo siguientes:
+    sergio.munoz.lillo@gmail.com
+    zapatos.bernini.onlineshop@gmail.com
+
+Si se desea añadir, eliminar o modificar un destinatario del correo final, se ha de cambiar en: ShoeStore/email_manager/views.py línea 10.
+
+Se enviará un correo electrónico que incluirá un pequeño texto informativo con el usuario que ha realizado el pedido, aparte del desglose de gastos en formato excel.
+
+Por si se quiere probar a iniciar sesión en la cuenta de correo de prueba, las credenciales son las siguientes:
+    usuario: zapatos.bernini.onlineshop@gmail.com
+    contraseña: ZaPaTOsss_-7BerNoiNi_SeCuR3

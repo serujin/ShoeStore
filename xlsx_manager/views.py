@@ -1,10 +1,10 @@
-from django.shortcuts import render
-import xlsxwriter
+from django.shortcuts import redirect
 import pandas
 from io import BytesIO
-from decimal import Decimal
 
 def generate_excel_from_values(request):
+    if not request.user.is_authenticated:
+        return redirect('/signin')
     products = request.session['products']
     quantities = request.session['quantities']
     prices = request.session['prices']

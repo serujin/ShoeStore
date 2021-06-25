@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.core.mail import EmailMessage
 from xlsx_manager import views as xlsx_views
 
 def send_email(request):
+    if not request.user.is_authenticated:
+        return redirect('/signin')
     email = EmailMessage(
         subject = 'Pedido de tienda online',
         body = 'Pedido realizado por ' + request.user.username + ', se adjunta un fichero excel con los detalles del pedido:',
