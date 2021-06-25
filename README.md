@@ -1,6 +1,6 @@
 # ShoeStore
 
-Para poder instalar y probar la app, se han de seguir unos pasos:
+Para poder instalar y probar la app, se han de seguir los siguientes pasos:
 - Clonar el repositorio (git clone https://github.com/serujin/ShoeStore.git)
 - Instalar las dependencias de pip (pip install -r requirements.txt)
 - Iniciar el servidor (python manage.py runserver)
