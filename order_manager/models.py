@@ -10,7 +10,7 @@ class Order(models.Model):
     total      = models.DecimalField(max_digits=10, decimal_places=2) 
 
     def __str__(self):
-        return self.client.username + ' ' + self.created_at.strftime('%d-%m-%Y %H:%M ')
+        return self.client.username + ' ' + self.created_at.strftime('%d-%m-%Y')
 
 class Cart(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
