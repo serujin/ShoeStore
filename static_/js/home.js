@@ -55,8 +55,6 @@ function updateTotal() {
         itemQuantity = parseFloat(cartItem.childNodes[1].innerHTML);
         itemPrice = parseFloat(cartItem.childNodes[2].childNodes[0].innerHTML.replace(",", "."));
         total += itemQuantity * itemPrice;
-        console.log(itemQuantity, itemPrice)
-        console.log(total)
     });
     document.getElementById("total-price").innerHTML = (Math.round(total * 100) / 100).toFixed(2);
 }
