@@ -90,7 +90,6 @@ function onSuccessOnClickBuyButton(data) {
         cartItem.parentNode.removeChild(cartItem);
     });
     updateCart();
-    console.log()
     $('#cart-trigger').removeClass('show');
     $('#cart').removeClass('show');
     showFeedback('success', 'Pedido realizado correctamente', false, 2000, "rgba(80,80,80,0.4)")
