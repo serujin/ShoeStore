@@ -26,7 +26,7 @@ def save_order(request):
     total = request.session['total']
     order = Order()
     order.client = request.user
-    order.total = total[:-1]
+    order.total = total[:-1] #.replace(',', '.')
     order.save()
     for index in range(len(products)):
         product = Product.objects.get(name=products[index], price=prices[index][:-1])

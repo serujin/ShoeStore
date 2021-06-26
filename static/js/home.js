@@ -56,7 +56,7 @@ function updateTotal() {
         itemPrice = parseFloat(cartItem.childNodes[2].childNodes[0].innerHTML.replace(",", "."));
         total += itemQuantity * itemPrice;
     });
-    document.getElementById("total-price").innerHTML = (Math.round(total * 100) / 100).toFixed(2);
+    document.getElementById("total-price").innerHTML = (Math.round(total * 100) / 100).toFixed(2).replace(",", ".");
 }
 
 function getCartHolder(name, price) {
@@ -105,7 +105,7 @@ function onClickBuyButton() {
     Array.from(cartProducts).forEach(cartItem => {
         itemName = cartItem.childNodes[0].innerHTML;
         itemQuantity = cartItem.childNodes[1].innerHTML;
-        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML + '€';
+        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML.replace(",", ".") + '€';
         products.push(itemName);
         quantities.push(itemQuantity);
         prices.push(itemPrice);
