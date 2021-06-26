@@ -9,9 +9,6 @@ class Order(models.Model):
     # This field is used, so that in case of deleting a product, the total price can be consulted.
     total      = models.DecimalField(max_digits=10, decimal_places=2) 
 
-    def __str__(self):
-        return self.client.username + ' ' + self.created_at.strftime('%d-%m-%Y')
-
 class Cart(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
