@@ -44,17 +44,19 @@ function updateCart() {
         document.getElementById("cart-header").style = "display: flex !important;"
         document.getElementById("cart-footer").style = "display: flex !important;"
         document.getElementById("cart-body-empty").style = "display: none !important"
-        updateTotal();
     }
+    updateTotal();
 }
 
 function updateTotal() {
     cartProducts = document.getElementsByClassName("cart-item");
     total = 0.00;
     Array.from(cartProducts).forEach(cartItem => {
-        itemQuantity = cartItem.childNodes[1].innerHTML;
-        itemPrice = cartItem.childNodes[2].childNodes[0].innerHTML;
-        total += +(itemQuantity) * +(itemPrice);
+        itemQuantity = parseFloat(cartItem.childNodes[1].innerHTML);
+        itemPrice = parseFloat(cartItem.childNodes[2].childNodes[0].innerHTML.replace(",", "."));
+        total += itemQuantity * itemPrice;
+        console.log(itemQuantity, itemPrice)
+        console.log(total)
     });
     document.getElementById("total-price").innerHTML = (Math.round(total * 100) / 100).toFixed(2);
 }
