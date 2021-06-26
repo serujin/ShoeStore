@@ -12,7 +12,7 @@ def generate_excel_from_values(request):
     buffer = BytesIO()
     total_col = ['' for n in range(len(products))]
     total_col[0] = total
-    data = pandas.DataFrame({'Products': products, 'Units': quantities,'Prices': prices, 'Total': total_col})
+    data = pandas.DataFrame({'Producto': products, 'Unidades': quantities,'Precio': prices, 'Total': total_col})
     writer = pandas.ExcelWriter(buffer, engine='xlsxwriter')
     data.to_excel(writer, sheet_name='Products', index=False)
     workbook = writer.book
