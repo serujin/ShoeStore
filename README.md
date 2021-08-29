@@ -1,4 +1,16 @@
-# ShoeStore
+# ShoeStore ENGLISH
+
+To install and test the app, you must follow this steps:
+- Clone the repository (git clone https://github.com/serujin/ShoeStore.git)
+- Install pip dependencies (pip install -r requirements.txt)
+- Init the server (python manage.py runserver)
+- Go to the url: http://127.0.0.1:8000
+
+The database already has data and all migrations applied.
+
+Documentation is located at docs folder.
+
+# ShoeStore ESPAÑOL
 
 Para poder instalar y probar la app, se han de seguir los siguientes pasos:
 - Clonar el repositorio (git clone https://github.com/serujin/ShoeStore.git)
